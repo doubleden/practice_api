@@ -46,6 +46,16 @@ async fn get_exercises() -> impl Responder {
         )
     );
 
+    exercises.push_back(
+        Exercise::new(
+            3,
+            "legs",
+            "Присяд со штангой",
+            "Положите штангу на плечи, выставьте одну ногу вперед, вторую отведите назад. На вдохе опустите таз до параллели бедра с полом. На выдохе вернитесь в исходное положение. Упражнение эффективно нагружает мышцы бедер и ягодиц.",
+            "http://127.0.0.1:8080/images/squat_with_barbell.jpg"
+        )
+    );
+
     HttpResponse::Ok()
         .content_type("application/json; charset=utf-8")
         .json(exercises)
