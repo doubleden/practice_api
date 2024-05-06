@@ -3,6 +3,8 @@ use serde::{Serialize, Deserialize};
 use actix_web::{web, App, HttpResponse, HttpServer, Responder};
 use actix_files as afs;
 
+const IP: &str = "127.0.0.1:8080";
+
 #[derive(Serialize, Deserialize)]
 struct Exercise {
     id: u32,
@@ -32,7 +34,7 @@ async fn get_exercises() -> impl Responder {
             "legs",
             "Жим ног",
             "Упражнение для прокачки ног, которое выполняется в специальном тренажёре, горизонтальном или вертикальном (наклонном)",
-            "http://127.0.0.1:8080/images/leg_press.png"
+            &format!("http://{IP}/images/leg_press.png")
         )
     );
 
@@ -42,7 +44,7 @@ async fn get_exercises() -> impl Responder {
             "legs",
             "Сгибания",
             "Сгибание ног в тренажёре — упражнение для развития силы и наращивания объёма мышц на задней стороне бедра.",
-            "http://127.0.0.1:8080/images/leg_curl.jpg"
+            &format!("http://{IP}/images/leg_curl.jpg")
         )
     );
 
@@ -52,7 +54,7 @@ async fn get_exercises() -> impl Responder {
             "legs",
             "Присяд со штангой",
             "Положите штангу на плечи, выставьте одну ногу вперед, вторую отведите назад. На вдохе опустите таз до параллели бедра с полом. На выдохе вернитесь в исходное положение. Упражнение эффективно нагружает мышцы бедер и ягодиц.",
-            "http://127.0.0.1:8080/images/squat_with_barbell.jpg"
+            &format!("http://{IP}/images/squat_with_barbell.jpg")
         )
     );
 
@@ -63,12 +65,13 @@ async fn get_exercises() -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+
     HttpServer::new(|| {
         App::new()
             .service(afs::Files::new("/images", "static/images").show_files_listing())
             .route("/trainings", web::get().to(get_exercises))
     })
-        .bind("127.0.0.1:8080")?
+        .bind(IP)?
         .run()
         .await
 }
