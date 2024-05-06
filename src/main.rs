@@ -6,15 +6,17 @@ use actix_files as afs;
 #[derive(Serialize, Deserialize)]
 struct Exercise {
     id: u32,
+    category: String,
     name: String,
     description: String,
     image: String,
 }
 
 impl Exercise {
-    fn new(id: u32, name: &str, description: &str, photo_url: &str) -> Self {
+    fn new(id: u32, category: &str, name: &str, description: &str, photo_url: &str) -> Self {
         Exercise {
             id,
+            category: category.to_string(),
             name: name.to_string(),
             description: description.to_string(),
             image: photo_url.to_string(),
@@ -27,22 +29,26 @@ async fn get_exercises() -> impl Responder {
     exercises.push_back(
         Exercise::new(
             1,
-            "Morning Run",
-            "A quick morning run.",
-            "http://127.0.0.1:8080/photos/1.png"
+            "legs",
+            "Жим ног",
+            "Упражнение для прокачки ног, которое выполняется в специальном тренажёре, горизонтальном или вертикальном (наклонном)",
+            "http://127.0.0.1:8080/images/leg_press.png"
         )
     );
 
     exercises.push_back(
         Exercise::new(
             2,
-            "Swimming",
-            "Swimming in the pool for 45 minutes.",
-            "http://127.0.0.1:8080/photos/2.webp"
+            "legs",
+            "Сгибания",
+            "Сгибание ног в тренажёре — упражнение для развития силы и наращивания объёма мышц на задней стороне бедра.",
+            "http://127.0.0.1:8080/images/leg_curl.jpg"
         )
     );
 
-    HttpResponse::Ok().json(exercises)
+    HttpResponse::Ok()
+        .content_type("application/json; charset=utf-8")
+        .json(exercises)
 }
 
 #[actix_web::main]
