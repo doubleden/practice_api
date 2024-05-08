@@ -188,6 +188,106 @@ async fn get_exercises() -> impl Responder {
         )
     );
     // LEGS END
+    exercises.push_back(
+        Exercise::new(
+            17,
+            "chest",
+            "Жим лёжа",
+            "Жим лёжа — базовое физическое упражнение со свободным весом.",
+            &format!("http://{IP}/images/bench_press.jpg.webp")
+        )
+    );
+
+    exercises.push_back(
+        Exercise::new(
+            18,
+            "chest",
+            "Жим лёжа <30",
+            "Смена угла наклона жима позволяет уделять внимание конкретной части груди, что способствует построению нужного рельефа",
+            &format!("http://{IP}/images/bench_press30.jpg.jpeg")
+        )
+    );
+
+    exercises.push_back(
+        Exercise::new(
+            19,
+            "chest",
+            "Жим лёжа гантелями",
+            "Жим гантелей обеспечивает более широкий диапазон движения, так как каждая рука двигается независимо.",
+            &format!("http://{IP}/images/bench_dmb.png")
+        )
+    );
+
+    exercises.push_back(
+        Exercise::new(
+            20,
+            "chest",
+            "Жим лёжа гантелями <30",
+            "Жим гантелей обеспечивает более широкий диапазон движения, так как каждая рука двигается независимо. Нагрузка идет на вврхнюю часть груди",
+            &format!("http://{IP}/images/bench_dmb30.jpeg")
+        )
+    );
+
+    exercises.push_back(
+        Exercise::new(
+            21,
+            "chest",
+            "Жим узким хватом",
+            "Жим узким хватом — это базовое упражнение на прокачку грудных мышц и трицепсов, при выполнении которого руки на грифе находятся на расстоянии около 40 см друг от друга.",
+            &format!("http://{IP}/images/bench_close.jpeg")
+        )
+    );
+
+    exercises.push_back(
+        Exercise::new(
+            22,
+            "chest",
+            "Пуловер",
+            "Пуловер — изолированное упражнение для проработки верхней части спины, при этом незначительно нагружаются грудные мышцы и трицепсы.",
+            &format!("http://{IP}/images/pullover.jpeg")
+        )
+    );
+
+    exercises.push_back(
+        Exercise::new(
+            23,
+            "chest",
+            "Разводка в тренажёре",
+            "В тренажере мышца всегда находится под нагрузкой. Тяжесть упражнения возрастает по мере сведения рук",
+            &format!("http://{IP}/images/chest_together.jpeg")
+        )
+    );
+
+    exercises.push_back(
+        Exercise::new(
+            24,
+            "chest",
+            "Разводка в кроссе",
+            "Эффективное изолированное упражнение для развития мышц груди.",
+            &format!("http://{IP}/images/chest_together_cross.jpeg")
+        )
+    );
+
+    exercises.push_back(
+        Exercise::new(
+            25,
+            "chest",
+            "Брусья",
+            "Нагрузка приходится на трицепс и мышцы груди.",
+            &format!("http://{IP}/images/bars.png")
+        )
+    );
+
+    exercises.push_back(
+        Exercise::new(
+            26,
+            "chest",
+            "Отжимания",
+            "Отжима́ния — базовое физическое упражнение, выполняемое в планке и представляющее собой опускание-поднятие тела с помощью рук от пола, скамьи, стула, стола, стены и т. д.",
+            &format!("http://{IP}/images/pushup.jpeg")
+        )
+    );
+    //END CHEST
 
 
 
