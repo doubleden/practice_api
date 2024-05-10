@@ -421,6 +421,56 @@ async fn get_exercises() -> impl Responder {
     );
     //END BACK
 
+    exercises.push_back(
+        Exercise::new(
+            40,
+            "arms",
+            "Трицепс канатами",
+            "Опуская кроссовер плавно вниз, зафиксируйте результат в самой нижней точке на пару секунд, Так как именно в нижней точке трицепс напряжен больше всего.",
+            &format!("http://{IP}/images/ropes.jpeg")
+        )
+    );
+
+    exercises.push_back(
+        Exercise::new(
+            41,
+            "arms",
+            "Французкий жим",
+            "Французский жим – упражнение, при котором основная нагрузка приходится на разгибающие мышцы рук – трицепсы. Также в работу включаются мышцы груди, плеч и предплечья, но в меньшей степени.",
+            &format!("http://{IP}/images/french.jpeg")
+        )
+    );
+
+    exercises.push_back(
+        Exercise::new(
+            42,
+            "arms",
+            "Бицепс стоя",
+            "Во время подъема штанги не двигайте локтями, держите их по бокам туловища и не сгибайте руки в запястьях.",
+            &format!("http://{IP}/images/biceps_class.jpeg")
+        )
+    );
+
+    exercises.push_back(
+        Exercise::new(
+            43,
+            "arms",
+            "Бицепс молотки",
+            "Мóлот — изолирующее упражнение для развития мышц боковой части двуглавой мышцы плеча, плечевой и плечелучевой мышц.",
+            &format!("http://{IP}/images/hummers.jpeg")
+        )
+    );
+
+    exercises.push_back(
+        Exercise::new(
+            44,
+            "arms",
+            "Бицепс в кроссе",
+            "Мóлот В этом упражнении сгибания рук на бицепс задействуют все пять компонентов бицепса.",
+            &format!("http://{IP}/images/biceps_block.jpeg")
+        )
+    );
+
     HttpResponse::Ok()
         .content_type("application/json; charset=utf-8")
         .json(exercises)
