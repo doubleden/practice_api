@@ -2,11 +2,12 @@ use std::collections::VecDeque;
 use serde::{Serialize, Deserialize};
 use actix_web::{web, App, HttpResponse, HttpServer, Responder};
 use actix_files as afs;
-
+use uuid::Uuid;
 const IP: &str = "127.0.0.1:8080";
 
 #[derive(Serialize, Deserialize)]
 struct Exercise {
+    id: Uuid,
     category: String,
     name: String,
     description: String,
@@ -16,6 +17,7 @@ struct Exercise {
 impl Exercise {
     fn new(category: &str, name: &str, description: &str, photo_url: &str) -> Self {
         Exercise {
+            id: Uuid::new_v4(),
             category: category.to_string(),
             name: name.to_string(),
             description: description.to_string(),
