@@ -7,7 +7,6 @@ const IP: &str = "127.0.0.1:8080";
 
 #[derive(Serialize, Deserialize)]
 struct Exercise {
-    id: u32,
     category: String,
     name: String,
     description: String,
@@ -15,9 +14,8 @@ struct Exercise {
 }
 
 impl Exercise {
-    fn new(id: u32, category: &str, name: &str, description: &str, photo_url: &str) -> Self {
+    fn new(category: &str, name: &str, description: &str, photo_url: &str) -> Self {
         Exercise {
-            id,
             category: category.to_string(),
             name: name.to_string(),
             description: description.to_string(),
@@ -30,7 +28,6 @@ async fn get_exercises() -> impl Responder {
     let mut exercises = VecDeque::new();
     exercises.push_back(
         Exercise::new(
-            1,
             "legs",
             "Жим ног",
             "Упражнение для прокачки ног, которое выполняется в специальном тренажёре, горизонтальном или вертикальном (наклонном)",
@@ -40,7 +37,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            2,
             "legs",
             "Присяд со штангой",
             "Положите штангу на плечи, выставьте одну ногу вперед, вторую отведите назад. На вдохе опустите таз до параллели бедра с полом. На выдохе вернитесь в исходное положение. Упражнение эффективно нагружает мышцы бедер и ягодиц.",
@@ -50,7 +46,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            3,
             "legs",
             "Присяд с гантелей",
             "Альтернатива упражнения - присяд со штангой",
@@ -60,7 +55,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            4,
             "legs",
             "Выпады назад",
             "Упражнение выпадов назад 一 это упражнение, которое направлено на развитие мышц ног, таких как ягодицы, бедра и икры.",
@@ -70,7 +64,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            5,
             "legs",
             "Болгарский выпад",
             "упражнение для тренировки нижней части тела, особенно ягодичных и бедренных мышц.",
@@ -80,7 +73,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            6,
             "legs",
             "Выпады вперед",
             "Классика",
@@ -90,7 +82,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            7,
             "legs",
             "Сгибание ног",
             "Сгибание ног в тренажёре — упражнение для развития силы и наращивания объёма мышц на задней стороне бедра.",
@@ -100,7 +91,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            8,
             "legs",
             "Разгибания ног",
             "Разгибания ног в тренажёре — упражнение для развития силы и наращивания объёма мышц на передней стороне бедра.",
@@ -110,7 +100,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            9,
             "legs",
             "Тяга классика",
             "Большая часть нагрузки приходится на спину — разгибатели и трапециевидные мышцы.",
@@ -120,7 +109,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            10,
             "legs",
             "Тяга сумо",
             "Приседания сумо — это комплексное упражнение, при выполнении которого работает много мышц. Основные мышцы: квадрицепсы, ягодичные мышцы, бицепс бедра, икры и внутренняя поверхность бедер, и другие, более мелкие, внутренние мышцы бедра.",
@@ -130,7 +118,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            11,
             "legs",
             "Пистолетик",
             "«Пистолетик» — приседание на одной ноге без опоры, относится к силовым упражнениям. Его биомеханика аналогична обычным приседаниям. Но выполнять «пистолетик» значительно тяжелее, так как рабочая нога получает непривычную нагрузку.",
@@ -140,7 +127,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            12,
             "legs",
             "Броски гири",
             "Броски гири, так или иначе, приводит в тонус все мышцы, но в большей степени участвуют мышцы бедра, ягодиц, спины и живота",
@@ -150,7 +136,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            13,
             "legs",
             "Махи лёжа на боку",
             "Такие махи направлены на укрепление внутренней поверхности бедра и нижней части брюшной мускулатуры.",
@@ -160,7 +145,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            14,
             "legs",
             "Ягодичный мостик",
             "Ягодичный мостик – это наилучшее упражнения для проработки ягодичной мышцы.",
@@ -170,7 +154,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            15,
             "legs",
             "Свидение ног",
             "Сведение ног – востребованное физическое упражнение для укрепления нижнего пояса.",
@@ -180,7 +163,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            16,
             "legs",
             "Развидение ног",
             "Разведение ног - позволяет тренировать внешние (отводящие) мышцы бёдер и ягодичные мышцы.",
@@ -190,7 +172,6 @@ async fn get_exercises() -> impl Responder {
     // LEGS END
     exercises.push_back(
         Exercise::new(
-            17,
             "chest",
             "Жим лёжа",
             "Жим лёжа — базовое физическое упражнение со свободным весом.",
@@ -200,7 +181,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            18,
             "chest",
             "Жим лёжа <30",
             "Смена угла наклона жима позволяет уделять внимание конкретной части груди, что способствует построению нужного рельефа",
@@ -210,7 +190,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            19,
             "chest",
             "Жим лёжа гантелями",
             "Жим гантелей обеспечивает более широкий диапазон движения, так как каждая рука двигается независимо.",
@@ -220,7 +199,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            20,
             "chest",
             "Жим лёжа гантелями <30",
             "Жим гантелей обеспечивает более широкий диапазон движения, так как каждая рука двигается независимо. Нагрузка идет на вврхнюю часть груди",
@@ -230,7 +208,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            21,
             "chest",
             "Жим узким хватом",
             "Жим узким хватом — это базовое упражнение на прокачку грудных мышц и трицепсов, при выполнении которого руки на грифе находятся на расстоянии около 40 см друг от друга.",
@@ -240,7 +217,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            22,
             "chest",
             "Пуловер",
             "Пуловер — изолированное упражнение для проработки верхней части спины, при этом незначительно нагружаются грудные мышцы и трицепсы.",
@@ -250,7 +226,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            23,
             "chest",
             "Разводка в тренажёре",
             "В тренажере мышца всегда находится под нагрузкой. Тяжесть упражнения возрастает по мере сведения рук",
@@ -260,7 +235,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            24,
             "chest",
             "Разводка в кроссе",
             "Эффективное изолированное упражнение для развития мышц груди.",
@@ -270,7 +244,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            25,
             "chest",
             "Брусья",
             "Нагрузка приходится на трицепс и мышцы груди.",
@@ -280,7 +253,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            26,
             "chest",
             "Отжимания",
             "Отжима́ния — базовое физическое упражнение, выполняемое в планке и представляющее собой опускание-поднятие тела с помощью рук от пола, скамьи, стула, стола, стены и т. д.",
@@ -291,7 +263,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            27,
             "shoulders",
             "Жим стоя",
             "Базовое упражнение с классической техникой (стоя со штангой) задействует много мышечных групп, но лучше всего прокачивает передние дельты, делая плечи визуально более объемными.",
@@ -301,7 +272,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            28,
             "shoulders",
             "Жим сидя с гантелями",
             "Жим гантелей сидя – классическое упражнение для проработки передней и средней дельтовидных мышц и в меньшей степени трицепса.",
@@ -311,7 +281,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            29,
             "shoulders",
             "Круг вращения",
             "Гало — прекрасное упражнение для улучшения подвижности ваших плеч, предложенное мастером русского гиревого спорта Стивом Максвелом.",
@@ -321,7 +290,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            30,
             "shoulders",
             "Отвидения",
             "За отведение руки в стороны от туловища отвечают надостная и дельтовидная мышцы.",
@@ -331,7 +299,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            31,
             "shoulders",
             "Батерфляй",
             "Тяга к подбородку — базовое упражнения для тренировки дельтовидных мышц (главным образом средней головки). В упражнении также участвует трапециевидные мышцы.",
@@ -341,7 +308,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            32,
             "shoulders",
             "Россомаха",
             "Упражнение на задний пучок. Скрещивание рук, затем разводка",
@@ -352,7 +318,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            33,
             "back",
             "Тяга верхнего блока",
             "Это одно из основных упражнений в фитнесе и культуризме, которое действует на внешние края широчайшей мышцы, а также на верхнюю часть грудной мышцы, в меньшей мере на дельтовидные мышцы и бицепсы рук",
@@ -362,7 +327,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            34,
             "back",
             "Тяга нижнего блока",
             "Тяга нижнего блока отлично укрепляет мышцы средней и нижней части спины, и как следствие, улучшается осанка.",
@@ -372,7 +336,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            35,
             "back",
             "Рычажная тяга",
             "Тяга вертикального рычажного тренажёра широким хватом качает верх широчайших мышц спины, так же включает в работу ромбовидные и трапециевидные мышцы спины.",
@@ -382,7 +345,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            36,
             "back",
             "Тяга в наклоне",
             "Это упражнение включает в работу среднюю и нижнюю часть трапециевидных, широчайшие и подостные мышцы, разгибатели позвоночника и задние дельты",
@@ -392,7 +354,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            37,
             "back",
             "Тяга гантелей одной рукой",
             "Основная работающая мышечная группа при тяге гантели в наклоне одной рукой – широчайшие мышцы спины.",
@@ -402,7 +363,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            38,
             "back",
             "Подтягивания",
             "Это базовое физическое упражнение, развивающее группы мышц верхней части тела: широчайшие, бицепсы, брахиалис, грудные, верхний отдел позвоночника, мышцы брюшной стенки, предплечья.",
@@ -412,7 +372,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            39,
             "back",
             "Гиперэкстензия",
             "Это изолированное физическое упражнение для развития выпрямителей спины.",
@@ -423,7 +382,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            40,
             "arms",
             "Трицепс канатами",
             "Опуская кроссовер плавно вниз, зафиксируйте результат в самой нижней точке на пару секунд, Так как именно в нижней точке трицепс напряжен больше всего.",
@@ -433,7 +391,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            41,
             "arms",
             "Французкий жим",
             "Французский жим – упражнение, при котором основная нагрузка приходится на разгибающие мышцы рук – трицепсы. Также в работу включаются мышцы груди, плеч и предплечья, но в меньшей степени.",
@@ -443,7 +400,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            42,
             "arms",
             "Бицепс стоя",
             "Во время подъема штанги не двигайте локтями, держите их по бокам туловища и не сгибайте руки в запястьях.",
@@ -453,7 +409,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            43,
             "arms",
             "Бицепс молотки",
             "Мóлот — изолирующее упражнение для развития мышц боковой части двуглавой мышцы плеча, плечевой и плечелучевой мышц.",
@@ -463,7 +418,6 @@ async fn get_exercises() -> impl Responder {
 
     exercises.push_back(
         Exercise::new(
-            44,
             "arms",
             "Бицепс в кроссе",
             "Мóлот В этом упражнении сгибания рук на бицепс задействуют все пять компонентов бицепса.",
