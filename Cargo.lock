@@ -257,7 +257,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "api_practice"
+name = "api_practice_en"
 version = "0.1.0"
 dependencies = [
  "actix-files",
